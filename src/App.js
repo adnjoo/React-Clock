@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
+import "./index.css";
 
+let meridiem = ["AM", "PM"];
 let minutes = [
   "00",
   "01",
@@ -64,7 +66,6 @@ let minutes = [
   "59",
 ];
 
-let meridiem = ['AM','PM']
 
 function App() {
   let [time, setTime] = useState("");
@@ -83,7 +84,7 @@ function App() {
     const listItems = hours.map((x) => {
       // console.log("myhour", myHour);
       if (x == myHour) {
-        return <i style={{ color: "red" }}>{x}&nbsp;</i>;
+        return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
@@ -97,80 +98,80 @@ function App() {
   };
 
   const renderMinutes = () => {
-    let myMinute = ''
-    if (typeof time === 'object'){
-      myMinute = time.getMinutes()
+    let myMinute = "";
+    if (typeof time === "object") {
+      myMinute = time.getMinutes();
     }
-    console.log('minutes', myMinute)
+    console.log("minutes", myMinute);
     const listItems = minutes.map((x) => {
       // console.log("myhour", myHour);
       if (x == myMinute) {
-        return <i style={{ color: "red" }}>{x}&nbsp;</i>;
+        return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
     });
     return (
       <>
-        <div style={{wordBreak:"break-word"}}>{listItems}</div>
+        <div style={{ wordBreak: "break-word" }}>{listItems}</div>
       </>
     );
   };
-  
+
   const renderSeconds = () => {
-    let mySecond = ''
-    if (typeof time === 'object'){
-      mySecond = time.getSeconds()
-      console.log('seconds', mySecond)
+    let mySecond = "";
+    if (typeof time === "object") {
+      mySecond = time.getSeconds();
+      console.log("seconds", mySecond);
     }
     // console.log('Seconds', mySecond)
     const listItems = minutes.map((x) => {
       // console.log("myhour", myHour);
       if (x == mySecond) {
-        return <i style={{ color: "red" }}>{x}&nbsp;</i>;
+        return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
     });
     return (
       <>
-        <div style={{wordBreak:"break-word"}}>{listItems}</div>
+        <div style={{ wordBreak: "break-word" }}>{listItems}</div>
       </>
     );
-  }
+  };
 
   const renderAMPM = () => {
-    let AMPM = ''
-    if (typeof time === 'object'){
-      AMPM = time.toLocaleTimeString().slice(-2)
-      console.log('AMPM', AMPM)
+    let AMPM = "";
+    if (typeof time === "object") {
+      AMPM = time.toLocaleTimeString().slice(-2);
+      console.log("AMPM", AMPM);
     }
-    const listItems = meridiem.map((x)=>{
-      if(x==AMPM){
-        return <i style={{ color: "red" }}>{x}&nbsp;</i>;
+    const listItems = meridiem.map((x) => {
+      if (x == AMPM) {
+        return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
-    })
-    return (
-      listItems
-    )
-  }
-  
-  useEffect(() => {
-    let date = new Date();
-    console.log(date.getHours());
-    console.log(date.getMinutes());
-    console.log(date.getSeconds());
-    //am/pm
-    console.log(date.toLocaleTimeString().slice(-2));
-    setTime(date);
-  }
-  // ,[] // uncomment for no updating
+    });
+    return listItems;
+  };
+
+  useEffect(
+    () => {
+      let date = new Date();
+      console.log(date.getHours());
+      console.log(date.getMinutes());
+      console.log(date.getSeconds());
+      //am/pm
+      console.log(date.toLocaleTimeString().slice(-2));
+      setTime(date);
+    }
+    // ,[] // uncomment for no updating
   );
 
   return (
-    <div className="App container text-center mt-5 border text-uppercase">
+    <div className="App container text-center mt-5 border text-uppercase mycontainer">
+      <h3>clock</h3>
       <div id="hours">{renderHours()}</div>
       <div id="minutes">{renderMinutes()}</div>
       <div id="seconds">{renderSeconds()}</div>
