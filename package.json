@@ -1,6 +1,6 @@
 {
   "name": "clock",
-  "homepage": "http://github.com/adnjoo/clock-stuff",
+  "homepage": "http://adnjoo.github.io/clock-stuff",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
