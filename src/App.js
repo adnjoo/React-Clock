@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import "./index.css";
+import Footer from './components/Footer'
 
 let meridiem = ["AM", "PM"];
 let minutes = [
@@ -170,6 +171,7 @@ function App() {
   );
 
   return (
+    <>
     <div className="App container text-center mt-5 border text-uppercase mycontainer">
       <h3>clock</h3>
       <div id="hours">{renderHours()}</div>
@@ -177,6 +179,8 @@ function App() {
       <div id="seconds">{renderSeconds()}</div>
       <div id="ampm">{renderAMPM()}</div>
     </div>
+    <Footer />
+    </>
   );
 }
 
