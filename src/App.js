@@ -1,72 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import "./index.css";
-import Footer from './components/Footer'
+import Footer from "./components/Footer";
 
 let meridiem = ["AM", "PM"];
-let minutes = [
-  "00",
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
-  "25",
-  "26",
-  "27",
-  "28",
-  "29",
-  "30",
-  "31",
-  "32",
-  "33",
-  "34",
-  "35",
-  "36",
-  "37",
-  "38",
-  "39",
-  "40",
-  "41",
-  "42",
-  "43",
-  "44",
-  "45",
-  "46",
-  "47",
-  "48",
-  "49",
-  "50",
-  "51",
-  "52",
-  "53",
-  "54",
-  "55",
-  "56",
-  "57",
-  "58",
-  "59",
-];
-
+const makeminutes = (num) => {
+  let x = Array.from(Array(num).keys()).map((y) =>
+    y < 10 ? "0" + String(y) : String(y)
+  );
+  console.log(x);
+  return x;
+};
+let minutes = makeminutes(60);
 
 function App() {
   let [time, setTime] = useState("");
@@ -172,14 +117,14 @@ function App() {
 
   return (
     <>
-    <div className="App container text-center mt-5 border text-uppercase mycontainer">
-      <h3>clock</h3>
-      <div id="hours">{renderHours()}</div>
-      <div id="minutes">{renderMinutes()}</div>
-      <div id="seconds">{renderSeconds()}</div>
-      <div id="ampm">{renderAMPM()}</div>
-    </div>
-    <Footer />
+      <div className="App container text-center mt-5 border text-uppercase mycontainer">
+        <h3>clock</h3>
+        <div id="hours">{renderHours()}</div>
+        <div id="minutes">{renderMinutes()}</div>
+        <div id="seconds">{renderSeconds()}</div>
+        <div id="ampm">{renderAMPM()}</div>
+      </div>
+      <Footer />
     </>
   );
 }
