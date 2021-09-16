@@ -11,6 +11,7 @@ const makeminutes = (num) => {
   console.log(x);
   return x;
 };
+//array of strings of 00-59 
 let minutes = makeminutes(60);
 
 function App() {
