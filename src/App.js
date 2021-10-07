@@ -11,7 +11,7 @@ const makeminutes = (num) => {
   console.log(x);
   return x;
 };
-//array of strings of 00-59 
+//array of strings of 00-59
 let minutes = makeminutes(60);
 
 function App() {
@@ -23,20 +23,24 @@ function App() {
     if (typeof time === "object") {
       //check PM time
       if (time.toLocaleTimeString().slice(-2) === "PM") {
-        myHour = time.getHours() - 12;
+        myHour = String(time.getHours() - 12);
       } else {
-        myHour = time.getHours();
+        myHour = String(time.getHours());
+      }
+      if (myHour === 0) {
+        myHour = "12";
       }
     }
+
     const listItems = hours.map((x) => {
-      // console.log("myhour", myHour);
-      if (x == myHour) {
+      console.log("myhour", typeof myHour, myHour);
+      if (x === myHour) {
         return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
     });
-    // console.log("myhour", myHour);
+    console.log("myhour", myHour);
     return (
       <>
         <div>{listItems}</div>
@@ -47,12 +51,12 @@ function App() {
   const renderMinutes = () => {
     let myMinute = "";
     if (typeof time === "object") {
-      myMinute = time.getMinutes();
+      myMinute = String(time.getMinutes());
     }
     console.log("minutes", myMinute);
     const listItems = minutes.map((x) => {
       // console.log("myhour", myHour);
-      if (x == myMinute) {
+      if (x === myMinute) {
         return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
@@ -68,13 +72,13 @@ function App() {
   const renderSeconds = () => {
     let mySecond = "";
     if (typeof time === "object") {
-      mySecond = time.getSeconds();
+      mySecond = "" + time.getSeconds();
       console.log("seconds", mySecond);
     }
     // console.log('Seconds', mySecond)
     const listItems = minutes.map((x) => {
       // console.log("myhour", myHour);
-      if (x == mySecond) {
+      if (x === mySecond) {
         return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
@@ -94,7 +98,7 @@ function App() {
       console.log("AMPM", AMPM);
     }
     const listItems = meridiem.map((x) => {
-      if (x == AMPM) {
+      if (x === AMPM) {
         return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
@@ -106,14 +110,14 @@ function App() {
   useEffect(
     () => {
       let date = new Date();
-      console.log(date.getHours());
-      console.log(date.getMinutes());
-      console.log(date.getSeconds());
-      //am/pm
-      console.log(date.toLocaleTimeString().slice(-2));
+      // console.log(date.getHours());
+      // console.log(date.getMinutes());
+      // console.log(date.getSeconds());
+      // //am/pm
+      // console.log(date.toLocaleTimeString().slice(-2));
       setTime(date);
-    }
-    // ,[] // uncomment for no updating
+    },
+    // [] // uncomment for no updating
   );
 
   return (
