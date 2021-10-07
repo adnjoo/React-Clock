@@ -27,9 +27,7 @@ function App() {
       } else {
         myHour = String(time.getHours());
       }
-      if (myHour === 0) {
-        myHour = "12";
-      }
+      myHour === 0 ? "12" : myHour
     }
 
     const listItems = hours.map((x) => {
