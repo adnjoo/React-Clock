@@ -3,18 +3,14 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import Footer from "./components/Footer";
 
-let meridiem = ["AM", "PM"];
-const makeminutes = (num) => {
-  let x = Array.from(Array(num).keys()).map((y) =>
-    y < 10 ? "0" + String(y) : String(y)
-  );
-  console.log(x);
-  return x;
-};
-//array of strings of 00-59
-let minutes = makeminutes(60);
+const makeminutes = (num) => Array.from(Array(60).keys()).map((y) => "" + y); // no zeros in front of # 0 to 9
 
-function App() {
+//array of strings from 00-59
+let minutes = makeminutes(60);
+console.log(minutes);
+let meridiem = ["AM", "PM"];
+
+const App = () => {
   let [time, setTime] = useState("");
 
   const renderHours = () => {
@@ -27,18 +23,18 @@ function App() {
       } else {
         myHour = String(time.getHours());
       }
-      myHour === 0 ? "12" : myHour
+      // myHour === 0 ? "12" : myHour
     }
 
     const listItems = hours.map((x) => {
-      console.log("myhour", typeof myHour, myHour);
+      // console.log("myhour", typeof myHour, myHour);
       if (x === myHour) {
         return <i className="custom">{x}&nbsp;</i>;
       } else {
         return <i>{x}&nbsp;</i>;
       }
     });
-    console.log("myhour", myHour);
+    // console.log("myhour", myHour);
     return (
       <>
         <div>{listItems}</div>
@@ -51,7 +47,7 @@ function App() {
     if (typeof time === "object") {
       myMinute = String(time.getMinutes());
     }
-    console.log("minutes", myMinute);
+    // console.log("minutes", myMinute);
     const listItems = minutes.map((x) => {
       // console.log("myhour", myHour);
       if (x === myMinute) {
@@ -93,7 +89,7 @@ function App() {
     let AMPM = "";
     if (typeof time === "object") {
       AMPM = time.toLocaleTimeString().slice(-2);
-      console.log("AMPM", AMPM);
+      // console.log("AMPM", AMPM);
     }
     const listItems = meridiem.map((x) => {
       if (x === AMPM) {
@@ -108,13 +104,8 @@ function App() {
   useEffect(
     () => {
       let date = new Date();
-      // console.log(date.getHours());
-      // console.log(date.getMinutes());
-      // console.log(date.getSeconds());
-      // //am/pm
-      // console.log(date.toLocaleTimeString().slice(-2));
       setTime(date);
-    },
+    }
     // [] // uncomment for no updating
   );
 
@@ -130,6 +121,6 @@ function App() {
       <Footer />
     </>
   );
-}
+};
 
 export default App;
