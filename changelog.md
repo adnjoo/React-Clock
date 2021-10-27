@@ -3,5 +3,4 @@
 2021-10-27 bug 
 00-09 minutes + seconds not rendering (fixed makeminutes function)
 
-12pm not rendering
-12am not rendering
+12pm/am not rendering (factored ternary operator with no return into if-else statement)

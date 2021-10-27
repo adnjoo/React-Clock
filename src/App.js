@@ -23,7 +23,9 @@ const App = () => {
       } else {
         myHour = String(time.getHours());
       }
-      // myHour === 0 ? "12" : myHour
+      if(myHour === "0") {
+        myHour = "12"
+      }
     }
 
     const listItems = hours.map((x) => {
@@ -67,7 +69,7 @@ const App = () => {
     let mySecond = "";
     if (typeof time === "object") {
       mySecond = "" + time.getSeconds();
-      console.log("seconds", mySecond);
+      // console.log("seconds", mySecond);
     }
     // console.log('Seconds', mySecond)
     const listItems = minutes.map((x) => {
