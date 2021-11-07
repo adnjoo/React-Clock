@@ -108,7 +108,7 @@ const App = () => {
       let date = new Date();
       setTime(date);
     }
-    // [] // uncomment for no updating
+    // ,[] // uncomment for no updating
   );
 
   return (
