@@ -1,4 +1,4 @@
-# clock-stuff
+# react-clock
 
 > react clock
 
