@@ -4,4 +4,4 @@
 
 [<img src='./scrn.gif' width='250'>](https://adnjoo.github.io/react-clock/)
 
-Built with React using hooks; deployed using [react-gh-pages](https://github.com/gitname/react-gh-pages).
+Built with [React](https://reactjs.org/) using hooks; deployed using [react-gh-pages](https://github.com/gitname/react-gh-pages).
