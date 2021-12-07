@@ -6,4 +6,4 @@
 
 Built with [React](https://reactjs.org/) using hooks; deployed using [react-gh-pages](https://github.com/gitname/react-gh-pages).
 
-Styled with css
+Styled with css.
