@@ -1,6 +1,6 @@
 {
   "name": "clock",
-  "homepage": "http://adnjoo.github.io/clock-stuff",
+  "homepage": "http://adnjoo.github.io/React-Clock",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
