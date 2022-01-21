@@ -1,4 +1,4 @@
-# React-Clock
+# React Clock
 
 > Shows the current time in hours/minutes/seconds
 
