@@ -1,6 +1,9 @@
-# React Clock
+<p align="center"> 
+<h3>React Clock</h3>
 
-> Shows the current time in hours/minutes/seconds
+Shows the current time in hours/minutes/seconds
+
+</p>
 
 [<img src='./scrn.gif' width='250'>](https://adnjoo.github.io/React-Clock/)
 
