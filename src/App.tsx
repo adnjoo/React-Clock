@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import Footer from "./components/Footer";
 
-const makeminutes = (num) => Array.from(Array(60).keys()).map((y) => "" + y); // no zeros in front of # 0 to 9
+const makeminutes = (num: any) => Array.from(Array(60).keys()).map((y) => "" + y); // no zeros in front of # 0 to 9
 
 //array of strings from 00-59
 let minutes = makeminutes(60);
-console.log(minutes);
+// console.log(minutes);
 let meridiem = ["AM", "PM"];
 
 const App = () => {
-  let [time, setTime] = useState("");
+  let [time, setTime] = useState<any>("");
 
   const renderHours = () => {
     let hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -103,13 +103,13 @@ const App = () => {
     return listItems;
   };
 
-  useEffect(
-    () => {
+  useEffect(() => {
+    setInterval(() => {
       let date = new Date();
       setTime(date);
-    }
-    // ,[] // uncomment for no updating
-  );
+    }, 1000);
+    },[]);
+    // uncomment for no updating
 
   return (
     <>

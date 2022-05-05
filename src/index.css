@@ -1,20 +1,30 @@
 .custom {
-    background-color: #2A9D8F;
-    font-size: xx-large;
-    color: #264653
+  background-color: #2a9d8f;
+  font-size: xx-large;
+  color: #264653;
 }
 
 .mycontainer {
-    font-family:Arial, Helvetica, sans-serif;
-    background-color: #F4A261;
-    outline: 10px solid #023e8a;
-    width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4a261;
+  outline: 10px solid #023e8a;
+  border-radius: 10px;
+  width: 400px;
 }
 
-body {
-    background-color: #e9c46a;
+html {
+  background-color: #e9c46a;
 }
 
-.myFooter{
-    margin:200px 0px 50px 0px;
+.myFooter {
+  margin: 200px 0px 50px 0px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+#root {
+  background-color: #2a9d8f;
 }
